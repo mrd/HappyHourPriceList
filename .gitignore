@@ -238,5 +238,5 @@ pip-log.txt
 *.mtc1
 *.out
 *.synctex.gz
-happyhour_generated.pdf
+*.pdf
 happyhour_generated.tex
