@@ -1,8 +1,8 @@
 #! /usr/bin/env python2.7
 
+import math
 import pickle
 import subprocess
-import math
 
 beers = pickle.load(open("beers.pkl","r"))
 
