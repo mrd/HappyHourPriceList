@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.7
+
 import requests
 import bs4
 import urllib
