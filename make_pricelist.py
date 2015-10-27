@@ -1,12 +1,15 @@
+#! /usr/bin/env python2.7
+
+import math
 import pickle
 import subprocess
-import math
+import sys
 
 beers = pickle.load(open("beers.pkl","r"))
 
 data=open("happyhour_template.tex").read()
 
-beer_name = "Minotaur"
+beer_name = sys.argv[1]
 beer = beers[beer_name]
 
 data = data.replace("<FIGNAME>", beer_name.lower())
