@@ -41,7 +41,7 @@ for line in lines:
     b_desc = get_beer_desc(b_name.lower().strip())
     # b = Beer(b_name, b_strength, b_cost_price, b_desc)
 
-    print "processing %s"%b.name
+    print "processing %s"%b_name
 
     beers[b_name.strip()] = {
         "name":b_name.strip(),
