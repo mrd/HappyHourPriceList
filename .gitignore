@@ -240,3 +240,5 @@ pip-log.txt
 *.synctex.gz
 *.pdf
 happyhour_generated.tex
+*.gdb_latexmk
+*.fls
