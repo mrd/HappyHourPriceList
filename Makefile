@@ -11,6 +11,7 @@ happyhour_generated.tex: beers.pkl
 	@$(PYTHON) make_pricelist.py $(beer)
 
 beers.pkl:
+	mkdir -p fig
 	@$(PYTHON) parse_beers.py
 
 print: happyhour_generated.pdf
