@@ -11,11 +11,13 @@ happyhour_generated.tex: beers.pkl
 	@$(PYTHON) make_pricelist.py $(beer)
 
 beers.pkl:
+	mkdir -p fig
 	@$(PYTHON) parse_beers.py
 
 print: happyhour_generated.pdf
 	lpr happyhour_generated.pdf
 
 clean:
-	rm *.pdf
-	rm *.pkl
+	rm -rf *.pdf
+	rm -rf *.pkl
+	rm -rf fig/*

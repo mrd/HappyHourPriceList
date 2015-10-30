@@ -4,6 +4,7 @@ import requests
 import bs4
 import urllib2
 import pickle
+import string
 import sys
 
 # class Beer:
@@ -51,23 +52,27 @@ for line in lines:
         }
 
     # save img
-    try:
-        resp = urllib2.urlopen("http://www.miltonbrewery.co.uk/media/pumpclips/%s.png"
-                               %b_name.lower().strip())
-    except urllib2.URLError, e:
-        if e.code == 404:
-            try:
-                resp = urllib2.urlopen("http://www.miltonbrewery.co.uk/media/pumpclips/%s.png"
-                                       %b_name.strip().capitalize())
-            except urllib2.URLError, e:
-                sys.stderr.write('Cannot find image for beer: %s\n' % b_name)
-                continue
-        else:
-            raise
-    localFile = open('fig/%s.png' % b_name.strip().lower(), 'w')
-    localFile.write(resp.read())
-    localFile.close()
 
+    possible_names = [b_name.lower().strip(),
+                      string.capitalize(b_name),
+                      string.capitalize(b_name) + "_Web",
+                      string.capitalize(b_name) + "_Website"]
+    found_beer = False
+    for name in possible_names:
+        try:
+            resp = urllib2.urlopen("http://www.miltonbrewery.co.uk/media/pumpclips/%s.png" %
+                                   name)
+            localFile = open('fig/%s.png' % b_name.strip().lower(), 'w')
+            localFile.write(resp.read())
+            localFile.close()
+            found_beer = True
+        except urllib2.URLError, e:
+            if e.code == 404:
+                continue
+            else:
+                raise
+    if not found_beer:
+        sys.stderr.write('Cannot find image for beer: %s\n' % b_name)
 
 # beers = sorted(beers, key=lambda b: b['name'])
 
