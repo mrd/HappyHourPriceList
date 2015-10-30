@@ -18,5 +18,6 @@ print: happyhour_generated.pdf
 	lpr happyhour_generated.pdf
 
 clean:
-	rm *.pdf
-	rm *.pkl
+	rm -rf *.pdf
+	rm -rf *.pkl
+	rm -rf fig/*
