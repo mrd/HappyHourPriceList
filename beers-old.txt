@@ -1,0 +1,37 @@
+Tiki, 3.8, 1.43, 1.70
+Nimrud, 3.8, 1.40, 1.70
+Jericho, 4.8, 1.60, 1.90
+Pegasus, 4.1, 1.50, 1.80
+Harmonia, 5.5, 1.50, 1.80
+Marcus Aurelius, 7.5, 1.90, 2.30
+Cyclops, 5.3, 1.80, 2.10
+Minerva, 4.6, 1.60, 1.90
+Mammon, 7.0, 1.80, 2.00
+Colossus, 5.6, 1.50, 1.80
+Icarus, 4.5, 1.60, 1.90
+Nero, 5.0, 1.45, 1.70
+Sparta, 4.3, 1.52, 1.80
+Neptune, 3.8, 1.09, 1.50
+Troy, 6.0, 1.46, 2.00
+Medusa, 4.6, 1.80, 2.50
+Amphion, 5.5, 1.49, 1.80
+Pegasus, 4.1, 1.47, 1.80
+Medea, 5.6, 1.51, 1.80
+Augustus, 5.8, 1.56, 1.80f
+Domus Sanctus Peri, 6, 1.78, 2.0
+Phoebe, 4.7, 1.48, 1.80
+Justinian, 3.9, 1.44, 1.70
+Proteus, 6.2, 1.79, 2.10
+Orion, 6.4, 1.70, 2
+Minotaur, 3.3, 1.30, 1.50
+Nike, 4.7, 1.50, 1.80
+Dionysus, 3.6, 1.40, 1.60
+Saturnalia, 5.3, 1.70, 2.00
+Orpheus, 4.2, 1.50, 1.80
+Abeona, 5.7, 1.74, 2.10
+Promethieus, 6.0, 1.80, 2.20
+Medusa, 4.6, 1.60, 1.90
+Saturnalia, 5.3, 1.70, 2.00
+Lanterne Rouge, 6, 1.80, 2.10
+Jupiter, 3.5, 1.40, 1.70
+Pantheon, 3.7, 1.41, 1.70
