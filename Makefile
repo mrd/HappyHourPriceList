@@ -10,7 +10,7 @@ happyhour_generated.pdf: happyhour_generated.tex
 happyhour_generated.tex: beers.pkl
 	@$(PYTHON) make_pricelist.py $(beer)
 
-beers.pkl:
+beers.pkl: beers.txt
 	mkdir -p fig
 	@$(PYTHON) parse_beers.py
 

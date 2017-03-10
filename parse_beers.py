@@ -6,6 +6,7 @@ import urllib2
 import pickle
 import string
 import sys
+from unidecode import unidecode
 
 # class Beer:
 
@@ -22,13 +23,14 @@ import sys
 
 
 def get_beer_desc(beer_name):
-
-    response = requests.get('http://www.miltonbrewery.co.uk/beers/%s.html'%beer_name)
+    url = 'http://www.miltonbrewery.co.uk/beers/%s.html' % beer_name
+    response = requests.get(url)
     if response.status_code == 404: return "NO SITE FOUND"
 
-    soup = bs4.BeautifulSoup(response.text)
+    soup = bs4.BeautifulSoup(response.text,"lxml")
     contents_tag = soup.select('#Content')
-    return contents_tag[0].contents[3].string
+    text = unidecode(contents_tag[0].contents[3].string)
+    return text
 
 
 beers = open("beers.txt")
@@ -38,8 +40,8 @@ lines = beers.readlines()
 beers = {}
 
 for line in lines:
-    b_name, b_strength, b_cost_price, _ = line.split(',')
-    b_desc = get_beer_desc(b_name.lower().strip())
+    b_name, b_strength, b_cost_price, b_price = line.split(',')
+    b_desc = get_beer_desc(b_name.replace(' ', '-').lower().strip())
     # b = Beer(b_name, b_strength, b_cost_price, b_desc)
 
     print "processing %s"%b_name
@@ -48,20 +50,21 @@ for line in lines:
         "name":b_name.strip(),
         "strength":float(b_strength),
         "cost_price":float(b_cost_price),
-        "desc":str(b_desc)
+        "desc":str(b_desc),
+	"price":float(b_price)
         }
 
     # save img
 
-    possible_names = [b_name.lower().strip(),
+    possible_names = [b_name.replace(' ', '-').lower().strip(),
                       string.capitalize(b_name),
                       string.capitalize(b_name) + "_Web",
                       string.capitalize(b_name) + "_Website"]
     found_beer = False
     for name in possible_names:
         try:
-            resp = urllib2.urlopen("http://www.miltonbrewery.co.uk/media/pumpclips/%s.png" %
-                                   name)
+            url = "http://www.miltonbrewery.co.uk/media/pumpclips/%s.png" % name
+            resp = urllib2.urlopen(url)
             localFile = open('fig/%s.png' % b_name.strip().lower(), 'w')
             localFile.write(resp.read())
             localFile.close()
