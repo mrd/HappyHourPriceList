@@ -12,7 +12,6 @@ Nero,5,1.60,1.8
 Sparta,4.3,1.60,1.9
 Neptune,3.8,1.15,1.4
 Troy,6,1.55,1.8
-Medusa,4.6,1.90,2.3
 Pegasus,4.1,1.55,1.9
 Medea,5.6,1.60,1.9
 Augustus,5.8,1.65,2.0
@@ -24,7 +23,7 @@ Dionysus,3.6,1.50,1.8
 Saturnalia,5.3,1.80,2.1
 Orpheus,4.2,1.60,1.9
 Abeona,5.7,1.85,2.2
-Medusa,4.6,1.70,2.0
+Medusa,4.6,1.60,1.90
 Saturnalia,5.3,1.80,2.1
 Jupiter,3.5,1.50,1.8
 Pantheon,3.7,1.50,1.8
