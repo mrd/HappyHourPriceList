@@ -3,6 +3,15 @@
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage[pscoord]{eso-pic}
+
+\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \setbox0=\hbox{#3}% Put <stuff> in a box
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+  }%
+}%
+
 
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0.0pt}
@@ -12,7 +21,7 @@
 \begin{document}
 
 \begin{center}
-	\includegraphics[width=0.25\linewidth]{fig/<FIGNAME>.png} \par \bigskip \bigskip \bigskip
+	\includegraphics[width=0.20\linewidth]{fig/<FIGNAME>.png} \par \bigskip \bigskip \bigskip
     {\Large Computer Lab Happy Hour} \\ \smallskip
     {5.00pm Friday \today}
 \end{center}
@@ -32,22 +41,23 @@
 
 \hline
 {\bf Other Alcoholic Drinks} & & \\
-Bottled beer/cider & \pounds 1.70/bottle & \pounds 2.00/bottle \\
-% Import Bottled beer/cider (small) & \pounds 1.70/bottle & \pounds 2.00/bottle \medskip \\
-Canned beer & \pounds 1.40/can & \pounds 1.65/can \\
-Canned cider & \pounds 1.00/can & \pounds 1.20/can \medskip \\
+Large 500ml bottle: beer or cider & \pounds 1.70/bottle & \pounds 2.00/bottle \\
+Small 330ml bottle: Leffe or cider & \pounds 1.40/bottle & \pounds 1.65/bottle \\
+San Miguel 330ml bottle & \pounds 1.20/bottle & \pounds 1.40/bottle \\
+Cabernet Sauvignon (per 125ml) & \pounds 1.20/glass & \pounds 1.40/glass \medskip \\
 
 \hline
 {\bf Soft Drinks} &&\\
 (Diet) Coke & 50p/can  & 60p/can \\
-Fruit juice & 20p/small~cup & 25p/small~cup \\
-& 50p/pint & 60p/pint \medskip \\
+San Pellegrino & 75p/can & 90p/can \\
+Fruit juice & 20p/small~cup & 25p/small~cup \medskip \\
 
 \hline
 {\bf Snacks} & & \\
-Nuts &\pounds 0.50 &\pounds 0.60 \\
-Crisps &\pounds 1.00 &\pounds 1.20 \\
+Nuts &\pounds 1.00 &\pounds 1.20 \\
+Crisps &\pounds 1.25 &\pounds 1.50 \\
 
 \end{tabular}
 \end{center}
+\placetextbox{0.75}{0.1}{\tiny For more information please re-read this menu}%
 \end{document}
