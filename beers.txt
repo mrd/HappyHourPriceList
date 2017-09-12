@@ -1,7 +1,7 @@
 Tiki,3.8,1.50,1.8
 Nimrud,3.8,1.50,1.8
 Jericho,4.8,1.70,2.0
-Pegasus,4.1,1.60,1.9
+Pegasus,4.1,1.50,1.8
 Marcus Aurelius,7.5,2.00,2.4
 Cyclops,5.3,1.90,2.3
 Minerva,4.6,1.70,2.0
@@ -12,7 +12,6 @@ Nero,5,1.70,2.0
 Sparta,4.3,1.60,1.9
 Neptune,3.8,1.15,1.4
 Troy,6,1.55,1.8
-Pegasus,4.1,1.55,1.9
 Medea,5.6,1.60,1.9
 Augustus,5.8,1.65,2.0
 Justinian,3.9,1.50,1.8
