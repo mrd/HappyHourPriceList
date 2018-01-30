@@ -59,7 +59,8 @@ for line in lines:
     possible_names = [b_name.replace(' ', '-').lower().strip(),
                       string.capitalize(b_name),
                       string.capitalize(b_name) + "_Web",
-                      string.capitalize(b_name) + "_Website"]
+                      string.capitalize(b_name) + "_Website",
+                      string.capitalize(b_name) + "webtransparent"]
     found_beer = False
     for name in possible_names:
         try:
