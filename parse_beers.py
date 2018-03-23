@@ -40,7 +40,7 @@ lines = beers.readlines()
 beers = {}
 
 for line in lines:
-    b_name, b_strength, b_cost_price, b_price = line.split(',')
+    b_name, b_strength, b_cost_price, b_donation = line.split(',')
     b_desc = get_beer_desc(b_name.replace(' ', '-').lower().strip())
     # b = Beer(b_name, b_strength, b_cost_price, b_desc)
 
@@ -51,7 +51,7 @@ for line in lines:
         "strength":float(b_strength),
         "cost_price":float(b_cost_price),
         "desc":str(b_desc),
-	"price":float(b_price)
+	"donation":float(b_donation)
         }
 
     # save img
