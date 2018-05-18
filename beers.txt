@@ -27,3 +27,4 @@ Jupiter,3.5,1.50,30
 Pantheon,3.7,1.50,30
 Psyche,4.2,1.50,30
 Zenobia,5.4,1.7,30
+Prometheus,6.0,1.8,40
