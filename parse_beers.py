@@ -40,44 +40,47 @@ lines = beers.readlines()
 beers = {}
 
 for line in lines:
-    b_name, b_strength, b_cost_price, b_donation = line.split(',')
+    b_brewery, b_name, b_strength, b_cost_price, b_donation = line.split(',')
     b_desc = get_beer_desc(b_name.replace(' ', '-').lower().strip())
     # b = Beer(b_name, b_strength, b_cost_price, b_desc)
 
-    print "processing %s"%b_name
+    print "processing %s"%b_name.replace(' ', '-').lower().strip()
 
     beers[b_name.strip()] = {
+        "brewery":b_brewery.strip(),
         "name":b_name.strip(),
         "strength":float(b_strength),
         "cost_price":float(b_cost_price),
         "desc":str(b_desc),
-	"donation":float(b_donation)
+        "donation":float(b_donation)
         }
 
     # save img
 
-    possible_names = [b_name.replace(' ', '-').lower().strip(),
-                      string.capitalize(b_name),
-                      string.capitalize(b_name) + "_Web",
-                      string.capitalize(b_name) + "_web",
-                      string.capitalize(b_name) + "_Website",
-                      string.capitalize(b_name) + "webtransparent"]
+    safe_name = b_name.replace(' ', '-').lower().strip()
+    possible_names = [safe_name,
+                      string.capitalize(safe_name),
+                      string.capitalize(safe_name) + "_Web",
+                      string.capitalize(safe_name) + "_web",
+                      string.capitalize(safe_name) + "_Website",
+                      string.capitalize(safe_name) + "webtransparent"]
     found_beer = False
-    for name in possible_names:
-        try:
-            url = "http://www.miltonbrewery.co.uk/media/pumpclips/%s.png" % name
-            resp = urllib2.urlopen(url)
-            localFile = open('fig/%s.png' % b_name.strip().lower(), 'w')
-            localFile.write(resp.read())
-            localFile.close()
-            found_beer = True
-        except urllib2.URLError, e:
-            if e.code == 404:
-                continue
-            else:
-                raise
-    if not found_beer:
-        sys.stderr.write('Cannot find image for beer: %s\n' % b_name)
+    if b_brewery == 'Milton':
+        for name in possible_names:
+            try:
+                url = "http://www.miltonbrewery.co.uk/media/pumpclips/%s.png" % name
+                resp = urllib2.urlopen(url)
+                localFile = open('fig/%s.png' % b_name.strip().lower(), 'w')
+                localFile.write(resp.read())
+                localFile.close()
+                found_beer = True
+            except urllib2.URLError, e:
+                if e.code == 404:
+                    continue
+                else:
+                    raise
+        if not found_beer:
+            sys.stderr.write('Cannot find image for beer: %s\n' % b_name)
 
 # beers = sorted(beers, key=lambda b: b['name'])
 
